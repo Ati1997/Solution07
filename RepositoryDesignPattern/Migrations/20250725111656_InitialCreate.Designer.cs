@@ -12,8 +12,8 @@ using RepositoryDesignPattern.Sample01.Models.Services;
 namespace RepositoryDesignPattern.Migrations
 {
     [DbContext(typeof(OnlineShopDbContext))]
-    [Migration("20250711121136_InitDb")]
-    partial class InitDb
+    [Migration("20250725111656_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,8 +48,8 @@ namespace RepositoryDesignPattern.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

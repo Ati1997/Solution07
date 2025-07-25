@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<OnlineShopDbContext>(
     options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("Default")
+        builder.Configuration.GetConnectionString("OnlineShopConnection")
         ));
 
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace RepositoryDesignPattern.Models.DomainModels.ProductAggregates
+namespace RepositoryDesignPattern.ApplicationServices.Dtos.ProductDtos
 {
-    public class Product
+    public class Post_Product_Dto
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
