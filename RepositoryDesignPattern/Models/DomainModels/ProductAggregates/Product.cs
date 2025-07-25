@@ -8,7 +8,7 @@ namespace RepositoryDesignPattern.Models.DomainModels.ProductAggregates
         public string Title { get; set; }
         public int Quantity { get; set; }
         //public int Price { get; set; }
-        [Precision(18, 2)]
-        public decimal Price { get; set; }
+        
+        public decimal UnitPrice { get; set; }
     }
 }

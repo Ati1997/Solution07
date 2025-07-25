@@ -42,7 +42,7 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
             {
                 Id = product.Id,
                 Title = product.Title,
-                Price = product.Price
+                UnitPrice = product.UnitPrice
             };
         }
 
@@ -63,7 +63,7 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
                 {
                     Id = product.Id,
                     Title = product.Title,
-                    Price = product.Price,
+                    UnitPrice = product.UnitPrice
                 };
                 getAll_Product_Dto.Add(dto);
             }
@@ -78,17 +78,19 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
             if (string.IsNullOrWhiteSpace(product_Dto.Title))
                 throw new ArgumentException("Title is required");
 
-            if (product_Dto.Price <= 0)
+            if (product_Dto.UnitPrice <= 0)
                 throw new ArgumentException("Price must be greater than zero");
 
             var product = new Product
             {
                 Id = Guid.NewGuid(),
                 Title = product_Dto.Title,
-                Price = product_Dto.Price
+                UnitPrice = product_Dto.UnitPrice
             };
 
             await _productRepository.Insert(product);
+            
+
         }
 
         public async Task Put(Put_Product_Dto product_Dto)
@@ -104,7 +106,7 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
                 throw new InvalidOperationException("Product not found");
 
             product.Title = product_Dto.Title;
-            product.Price = product_Dto.Price;
+            product.UnitPrice = product_Dto.UnitPrice;
 
             await _productRepository.Update(product);
         }
