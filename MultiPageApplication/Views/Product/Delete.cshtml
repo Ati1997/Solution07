@@ -1,0 +1,28 @@
+﻿@model MultiPageApplication.ApplicationServices.Dtos.ProductDtos.GetById_Product_Dto
+
+@{
+    ViewData["Title"] = "حذف محصول";
+}
+
+<h2>حذف محصول</h2>
+
+<h3>آیا مطمئن هستید که می‌خواهید محصول زیر را حذف کنید؟</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">عنوان</dt>
+        <dd class="col-sm-10">@Model.Title</dd>
+
+        <dt class="col-sm-2">قیمت</dt>
+        <dd class="col-sm-10">@Model.UnitPrice</dd>
+
+        <dt class="col-sm-2">موجودی</dt>
+        <dd class="col-sm-10">@Model.Quantity</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">حذف</button>
+    <a asp-action="Index" class="btn btn-secondary">انصراف</a>
+</form>

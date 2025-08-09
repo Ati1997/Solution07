@@ -26,11 +26,15 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
             if (product == null)
                 throw new InvalidOperationException("Product not found");
 
+            //Task Delete(Product product);
+
             await _productRepository.Delete(product);
         }
 
         public  async Task<GetById_Product_Dto> Get(Guid id)
         {
+            //Task<Product> SelectById(Guid id);
+
             if (id == Guid.Empty)
                 throw new ArgumentException("Invalid ID");
 
@@ -48,6 +52,7 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
 
         public async Task<List<GetAll_Product_Dto>> GetAll()
         {
+            //Task<List<Product>> SelectAll();
             var products = await (_productRepository.SelectAll());
 
             if (products == null || !products.Any()) 
@@ -87,6 +92,7 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
                 Title = product_Dto.Title,
                 UnitPrice = product_Dto.UnitPrice
             };
+            //Task Insert(Product product);
 
             await _productRepository.Insert(product);
             
@@ -107,6 +113,8 @@ namespace RepositoryDesignPattern.ApplicationServices.Services
 
             product.Title = product_Dto.Title;
             product.UnitPrice = product_Dto.UnitPrice;
+
+            //Task Update(Product product);
 
             await _productRepository.Update(product);
         }

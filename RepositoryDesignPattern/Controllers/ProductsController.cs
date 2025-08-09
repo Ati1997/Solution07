@@ -22,7 +22,7 @@ namespace RepositoryDesignPattern.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var products = await _productApplicationService.GetAllAsync();
+            var products = await _productApplicationService.GetAll();
             return View(products);
         }
 
